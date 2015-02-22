@@ -1,0 +1,40 @@
+{
+  "name": "angular2-tabs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "private": true,
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davideast/angular2-tabs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davideast/angular2-tabs/issues"
+  },
+  "homepage": "https://github.com/davideast/angular2-tabs",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-flatten": "0.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-shell": "^0.3.0",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-traceur": "^0.17.0",
+    "run-sequence": "^1.0.2"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.8.prod",
+    "rtts_assert": "^2.0.0-alpha.8",
+    "systemjs": "^0.14.1",
+    "zone.js": "^0.4.1"
+  }
+}
