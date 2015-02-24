@@ -1,10 +1,18 @@
-import * as ng from 'angular2/angular2';
+import {Component, Template, Parent} from 'angular2/angular2';
 import {Tabs} from 'components/tabs';
 
-@ng.Component({ selector: 'pane', directives: [Tabs] })
-@ng.Template({ url: '/templates/pane.html' })
+@Template({ url: '/templates/pane.html' })
+@Component({
+  selector: 'pane',
+  directives: [Tabs],
+   bind: {
+    title: 'title',
+    info: 'info',
+    visible: 'visible'
+  }
+})
 export class Pane {
-  constructor(@ng.Parent() tabs: Tabs) {
-
+  constructor(@Parent() tabs: Tabs) {
+    tabs.addPane(this);
   }
 }

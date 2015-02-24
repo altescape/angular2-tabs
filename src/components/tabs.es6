@@ -1,12 +1,20 @@
-import * as ng from 'angular2/angular2';
+import {Template, Component, Foreach} from 'angular2/angular2';
 
-@ng.Template({ url: '/templates/tabs.html', directives: [ng.Foreach] })
-@ng.Component({ selector: 'tabs' })
+@Template({ url: '/templates/tabs.html', directives: [Foreach] })
+@Component({ selector: 'tabs' })
 export class Tabs {
   constructor() {
-
+    this.panes = [];
   }
   addPane(pane) {
     this.panes.push(pane);
+  }
+  setVisiblePane(pane) {
+    pane.visible = true;
+    this.panes.forEach((p) => {
+      if(p !== pane) {
+        p.visible = false;
+      }
+    });
   }
 }

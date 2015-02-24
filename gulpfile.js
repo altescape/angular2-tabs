@@ -97,4 +97,4 @@ gulp.task('build:full', function(cb) {
 });
 
 // Default task will only transpile application specific files
-gulp.task('default', ['build:partial']);
+gulp.task('default', ['transpile']);
