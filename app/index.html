@@ -30,6 +30,7 @@
 
     <script>
       System.import('main').then(function(module) {
+        zone = zone.fork(Zone.longStackTraceZone);
         module.main();
       }, console.log.bind(console));
     </script>

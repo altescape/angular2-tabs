@@ -1,12 +1,7 @@
 import * as ng from 'angular2/angular2';
 
-// TODO: Why do we need the default object?
-var Component = ng.default.Component;
-var Template = ng.default.Template;
-var Foreach = ng.default.Foreach;
-
-@Template({ url: '/templates/tabs.html', directives: [Foreach] })
-@Component({ selector: 'tabs' })
+@ng.Template({ url: '/templates/tabs.html', directives: [ng.Foreach] })
+@ng.Component({ selector: 'tabs' })
 export class Tabs {
   constructor() {
 
