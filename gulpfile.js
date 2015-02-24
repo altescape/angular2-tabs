@@ -16,11 +16,11 @@ var runSequence = require('run-sequence');
 //  - Types (types)
 //  - Meta-data annotations (annotations)
 var TRACEUR_OPTIONS = {
-  modules: 'amd',
+  modules: 'instantiate',
   script: false,
   types: true,
   typeAssertions: true,
-  typeAssertionModule: 'assert',
+  typeAssertionModule: 'rtts_assert/rtts_assert',
   annotations: true,
   sourceMaps: 'file'
 };
