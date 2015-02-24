@@ -53,16 +53,16 @@ gulp.task('transpile', function() {
 });
 
 // Angular2 AtScript to ES5
-gulp.task('ng2build', shell.task(['sh ng2build.sh']));
+gulp.task('build:ng2', shell.task(['sh ng2build.sh']));
 
 // Copy transpiled Angular2 to app/lib
-gulp.task('ng2copy', function(){
+gulp.task('copy:ng2', function(){
   gulp.src(['node_modules/angular2-es5/**/*'])
     .pipe(gulp.dest('app/lib/angular2'));
 });
 
 // Copy transpiled rtts_assert to app/lib
-gulp.task('rtts_copy', function(){
+gulp.task('copy:rtts', function(){
   gulp.src('node_modules/rtts_assert-es5/**/*')
     .pipe(gulp.dest('app/lib/rtts_assert'));
 });
@@ -72,6 +72,8 @@ gulp.task('copy:deps', function() {
   gulp.src(deps)
     .pipe(gulp.dest('app/lib/deps'))
 });
+
+gulp.task('build:partial', ['copy:ng2', 'copy:rtts', 'copy:deps', 'transpile']);
 
 // Delete build folders/files (async)
 gulp.task('clean', function(cb) {
@@ -87,12 +89,12 @@ gulp.task('clean', function(cb) {
 //  1. clean
 //  2. ng2build
 //  3. copy && transpile
-gulp.task('sync-build', function(cb) {
+gulp.task('build:full', function(cb) {
   runSequence('clean',
-      'ng2build',
-      ['ng2copy', 'rtts_copy', 'copy:deps', 'transpile'],
+      'build:ng2',
+      'build:partial',
       cb);
 });
 
-// All together in harmony
-gulp.task('default', ['sync-build']);
+// Default task will only transpile application specific files
+gulp.task('default', ['build:partial']);
