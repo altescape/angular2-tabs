@@ -1,7 +1,6 @@
 import {Component, Template, Parent} from 'angular2/angular2';
 import {Tabs} from 'components/tabs';
 
-@Template({ url: '/templates/pane.html' })
 @Component({
   selector: 'pane',
   directives: [Tabs],
@@ -11,6 +10,7 @@ import {Tabs} from 'components/tabs';
     visible: 'visible'
   }
 })
+@Template({ url: '/templates/pane.html' })
 export class Pane {
   constructor(@Parent() tabs: Tabs) {
     tabs.addPane(this);
